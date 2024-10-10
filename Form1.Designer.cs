@@ -205,6 +205,7 @@
             this.radCong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.radCong.Name = "radCong";
             this.radCong.Size = new System.Drawing.Size(85, 29);
+
             this.radCong.TabIndex = 0;
             this.radCong.TabStop = true;
             this.radCong.Text = "Cộng";
@@ -212,9 +213,11 @@
             // 
             // Form1
             // 
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 409);
+
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnTinh);
@@ -225,8 +228,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSo1);
             this.Controls.Add(this.label1);
+
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+
             this.Name = "Form1";
             this.Text = "Tinh toan don gian 3";
             this.Load += new System.EventHandler(this.Form1_Load);
