@@ -36,8 +36,25 @@ namespace Buoi07_TinhToan3
         {
             //lấy giá trị của 2 ô số
             double so1, so2, kq = 0;
+           
+            if (string.IsNullOrWhiteSpace(txtSo1.Text))
+            {
+                MessageBox.Show("Vui lòng nhập số thứ nhất.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSo1.Focus();
+                return;
+            }
+
+            // Kiểm tra nếu ô số 2 trống
+            if (string.IsNullOrWhiteSpace(txtSo2.Text))
+            {
+                MessageBox.Show("Vui lòng nhập số thứ hai.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSo2.Focus();
+                return;
+            }
+
             so1 = double.Parse(txtSo1.Text);
             so2 = double.Parse(txtSo2.Text);
+
             //Thực hiện phép tính dựa vào phép toán được chọn
             if (radCong.Checked) kq = so1 + so2;
             else if (radTru.Checked) kq = so1 - so2;
