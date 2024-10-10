@@ -21,6 +21,9 @@ namespace Buoi07_TinhToan3
         {
             txtSo1.Text = txtSo2.Text = "0";
             radCong.Checked = true;             //đầu tiên chọn phép cộng
+             // Gắn sự kiện KeyPress cho các ô số
+            txtSo1.KeyPress += new KeyPressEventHandler(txtSo_KeyPress);
+            txtSo2.KeyPress += new KeyPressEventHandler(txtSo_KeyPress);
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -76,6 +79,23 @@ namespace Buoi07_TinhToan3
             else if (radChia.Checked && so2 != 0) kq = so1 / so2;
             //Hiển thị kết quả lên trên ô kết quả
             txtKq.Text = kq.ToString();
+        }
+
+        // Sự kiện kiểm tra ký tự nhập vào của TextBox (chỉ cho phép nhập số và dấu chấm)
+        private void txtSo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Chỉ cho phép nhập các ký tự số, dấu chấm, và phím điều khiển (như Backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true; // Ngăn việc nhập ký tự không hợp lệ
+            }
+
+            // Nếu đã có dấu chấm (.) trong TextBox thì không cho phép nhập thêm
+            TextBox textBox = sender as TextBox;
+            if (e.KeyChar == '.' && textBox.Text.Contains("."))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
