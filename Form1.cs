@@ -52,8 +52,22 @@ namespace Buoi07_TinhToan3
                 return;
             }
 
-            so1 = double.Parse(txtSo1.Text);
-            so2 = double.Parse(txtSo2.Text);
+            // Kiểm tra xem giá trị nhập vào có phải là số hợp lệ hay không
+            if (!double.TryParse(txtSo1.Text, out so1))
+            {
+                MessageBox.Show("Số thứ nhất không hợp lệ. Vui lòng nhập một số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSo1.Clear();
+                txtSo1.Focus();
+                return;
+            }
+
+            if (!double.TryParse(txtSo2.Text, out so2))
+            {
+                MessageBox.Show("Số thứ hai không hợp lệ. Vui lòng nhập một số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSo2.Clear();
+                txtSo2.Focus();
+                return;
+            }
 
             //Thực hiện phép tính dựa vào phép toán được chọn
             if (radCong.Checked) kq = so1 + so2;
